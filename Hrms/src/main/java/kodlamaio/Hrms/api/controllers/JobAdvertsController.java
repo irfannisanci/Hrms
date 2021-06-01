@@ -13,6 +13,7 @@ import kodlamaio.Hrms.business.abstracts.JobAdvertService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
 import kodlamaio.Hrms.entities.concretes.JobAdvert;
+import kodlamaio.Hrms.entities.dtos.JobAdvertDto;
 
 @RestController
 @RequestMapping("/api/jobadverts")
@@ -32,5 +33,20 @@ public class JobAdvertsController {
 	@PostMapping("/add")
 	public Result add(@RequestBody JobAdvert jobAdvert) {
 		return this.jobAdvertService.add(jobAdvert);
+	}
+	
+	@GetMapping("/findByIsActive")
+	public DataResult<List<JobAdvertDto>> findByIsActive(){
+		return this.jobAdvertService.findByIsActive();
+	}
+	
+	@GetMapping("/findByIsActiveOrderByapplicationDeadline")
+	public DataResult<List<JobAdvertDto>> findByIsActiveOrderByapplicationDeadline(){
+		return this.jobAdvertService.findByIsActiveOrderByApplicationDeadline();
+	}
+	
+	@GetMapping("/findByIsActiveAndEmployer_CompanyName")
+	public DataResult<List<JobAdvertDto>> findByIsActiveAndEmployer_CompanyName(String companyName){
+		return this.jobAdvertService.findByIsActiveAndEmployer_CompanyName(companyName);
 	}
 }

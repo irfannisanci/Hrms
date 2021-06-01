@@ -5,8 +5,13 @@ import java.util.List;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
 import kodlamaio.Hrms.entities.concretes.JobAdvert;
+import kodlamaio.Hrms.entities.dtos.JobAdvertDto;
 
 public interface JobAdvertService {
 	DataResult<List<JobAdvert>> getAll();
 	Result add(JobAdvert jobAdvert);
+	
+	DataResult<List<JobAdvertDto>> findByIsActive();
+	DataResult<List<JobAdvertDto>> findByIsActiveOrderByApplicationDeadline();
+	DataResult<List<JobAdvertDto>> findByIsActiveAndEmployer_CompanyName(String companyName);
 }

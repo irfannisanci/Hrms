@@ -1,7 +1,9 @@
 package kodlamaio.Hrms.business.concretes;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import kodlamaio.Hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.Hrms.core.utilities.results.SuccessResult;
 import kodlamaio.Hrms.dataAccess.abstracts.JobAdvertDao;
 import kodlamaio.Hrms.entities.concretes.JobAdvert;
+import kodlamaio.Hrms.entities.dtos.JobAdvertDto;
 
 @Service
 public class JobAdvertManager implements JobAdvertService{
@@ -21,7 +24,16 @@ public class JobAdvertManager implements JobAdvertService{
 		super();
 		this.jobAdvertDao = jobAdvertDao;
 	}
-
+	
+	private List<JobAdvertDto> dtoConverter(List<JobAdvert> jobAdvert){
+		ModelMapper modelMapper = new ModelMapper();
+		List<JobAdvertDto> jobAdvertDto =new ArrayList<JobAdvertDto>();
+		jobAdvert.forEach(mapper->{
+			JobAdvertDto dto=modelMapper.map(mapper, JobAdvertDto.class);
+			jobAdvertDto.add(dto);
+		});
+		return jobAdvertDto;
+	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAll() {
@@ -33,5 +45,22 @@ public class JobAdvertManager implements JobAdvertService{
 		this.jobAdvertDao.save(jobAdvert);
 		return new SuccessResult("İş ilanı açıldı");
 	}
+
+
+	@Override
+	public DataResult<List<JobAdvertDto>>findByIsActive() {
+		return new SuccessDataResult<List<JobAdvertDto>>(this.dtoConverter(this.jobAdvertDao.findByIsActive(true)),"Aktif iş ilanları listelendi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertDto>> findByIsActiveOrderByApplicationDeadline() {
+		return new SuccessDataResult<List<JobAdvertDto>>(this.dtoConverter(this.jobAdvertDao.findByIsActiveOrderByApplicationDeadline(true)),"Aktif iş ilanları tarihe göre sıralandı.");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertDto>> findByIsActiveAndEmployer_CompanyName(String companyName) {
+		return new SuccessDataResult<List<JobAdvertDto>>(this.dtoConverter(this.jobAdvertDao.findByIsActiveAndEmployer_CompanyName(true, companyName)));
+	}
+
 	
 }
