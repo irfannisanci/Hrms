@@ -1,0 +1,38 @@
+package kodlamaio.Hrms.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlamaio.Hrms.business.abstracts.SystemAdminService;
+import kodlamaio.Hrms.core.utilities.results.DataResult;
+import kodlamaio.Hrms.core.utilities.results.Result;
+import kodlamaio.Hrms.core.utilities.results.SuccessDataResult;
+import kodlamaio.Hrms.core.utilities.results.SuccessResult;
+import kodlamaio.Hrms.dataAccess.abstracts.SystemAdminDao;
+import kodlamaio.Hrms.entities.concretes.Personal;
+
+@Service
+public class SystemAdminManager implements SystemAdminService{
+
+	private SystemAdminDao systemAdminDao;
+	
+	@Autowired
+	public SystemAdminManager(SystemAdminDao systemAdminDao) {
+		super();
+		this.systemAdminDao = systemAdminDao;
+	}
+
+	@Override
+	public DataResult<List<Personal>> getAll() {
+		return new SuccessDataResult<List<Personal>>(this.systemAdminDao.findAll());
+	}
+
+	@Override
+	public Result add(Personal personal) {
+		this.systemAdminDao.save(personal);
+		return new SuccessResult("Sistem yöneticisi başarılı şekilde eklendi.");
+	}
+
+}

@@ -1,0 +1,52 @@
+package kodlamaio.Hrms.entities.concretes;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="job_adverts")
+public class JobAdvert {
+	
+	private int id;
+	
+	@Column(name="employer_id")
+	private int employerId;
+	
+	@Column(name="job_title_id")
+	private int jobTitleId;
+	
+	@Column(name="city_id")
+	private int cityId;
+	
+	@Column(name="creation_date")
+	private LocalDate creationDate;
+	
+	@Column(name="application_deadline")
+	private LocalDate applicationDeadline;
+	
+	@Column(name="is_active")
+	private boolean isActive;
+	
+	@Column(name="job_description")
+	private String jobDescription;
+	
+	@Column(name="min_salary")
+	private String minSalary;
+	
+	@Column(name="max_salary")
+	private String maxSalary;
+	
+	@Column(name="number_of_position")
+	private String numberOfPosition;
+	
+}

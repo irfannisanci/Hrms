@@ -1,0 +1,5 @@
+package kodlamaio.Hrms.business.adapters.abstracts;
+
+public interface MernisCheckService {
+
+}
