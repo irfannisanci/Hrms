@@ -36,7 +36,7 @@ public class CandidateManager implements CandidateService{
 			return new ErrorResult("Tüm alanların doldurulması zorunludur.");
 		}else if(!isNationalityIdAlreadyRegistered(candidate)) {
 			return new ErrorResult("Bu Tc kimlik numarası ile daha önce kayıt olunmuştur.");
-		}else {//daha önce kayıtlı email varsa kontrolü sağlanacak.
+		}else {
 		this.candidateDao.save(candidate);
 		return new SuccessResult("İş arayan eklendi."); //mernis ve email service eklenecek.
 		}
