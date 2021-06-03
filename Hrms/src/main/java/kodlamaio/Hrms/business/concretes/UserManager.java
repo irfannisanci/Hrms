@@ -33,5 +33,5 @@ public class UserManager implements UserService{
 		this.userDao.save(user);
 		return new SuccessResult("Kullanıcı eklendi");
 	}
-
+	
 }

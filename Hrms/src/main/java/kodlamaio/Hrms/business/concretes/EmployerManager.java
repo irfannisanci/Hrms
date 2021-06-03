@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.Hrms.business.abstracts.EmployerCheckService;
 import kodlamaio.Hrms.business.abstracts.EmployerService;
+import kodlamaio.Hrms.core.dataAccess.UserDao;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.ErrorResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
@@ -20,12 +21,15 @@ public class EmployerManager implements EmployerService{
 
 	private EmployerDao employerDao;
 	private EmployerCheckService employerCheckService;
+	private UserDao userDao;
 	
 	@Autowired
-	public EmployerManager(EmployerDao employerDao,EmployerCheckService employerCheckService) {
+	public EmployerManager(EmployerDao employerDao, EmployerCheckService employerCheckService,
+			UserDao userDao) {
 		super();
 		this.employerDao = employerDao;
-		this.employerCheckService=employerCheckService;
+		this.employerCheckService = employerCheckService;
+		this.userDao = userDao;
 	}
 
 	@Override
@@ -37,7 +41,7 @@ public class EmployerManager implements EmployerService{
 	public Result add(Employer employer) {
 		if (employer.getCompanyName().isBlank() || employer.getEmail().isBlank() || employer.getPassword().isBlank() || employer.getPhoneNumber().isBlank() || employer.getWebAddress().isBlank()) {
 			return new ErrorResult("Tüm alanların doldurulması zorunludur.");
-		} else if(!employerCheckService.isEmailAlreadyRegistered(employer)){
+		} else if(userDao.existsByEmail(employer.getEmail())){
 			return new ErrorResult("Bu email daha önce kullanılmıştır.");
 		}else if(!employerCheckService.CheckEmailAndDomain(employer)) {
 			return new ErrorResult("Email ile domain aynı olmak zorundadır.");

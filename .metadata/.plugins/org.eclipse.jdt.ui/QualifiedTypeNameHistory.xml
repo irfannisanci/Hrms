@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
-    <fullyQualifiedTypeName name="javax.persistence.Table"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Employer"/>
-    <fullyQualifiedTypeName name="antlr.collections.List"/>
-    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.City"/>
-    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.dataAccess.abstracts.JobAdvertDao"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.JobAdvertService"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnoreProperties"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.dataAccess.abstracts.CandidateDao"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.SuccessResult"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
@@ -47,17 +36,28 @@
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Candidate"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.ErrorResult"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.JobAdvertDto"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.JobAdvert"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.DataResult"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.SuccessDataResult"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Employer"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.modelmapper.spi.MatchingStrategy"/>
+    <fullyQualifiedTypeName name="org.modelmapper.convention.MatchingStrategies"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.JobAdvert"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.JobAdvertDto"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.SuccessDataResult"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.core.entities.User"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.dataAccess.abstracts.EmployerDao"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.UserService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.core.dataAccess.UserDao"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.dataAccess.abstracts.CandidateDao"/>
 </qualifiedTypeNameHistroy>
