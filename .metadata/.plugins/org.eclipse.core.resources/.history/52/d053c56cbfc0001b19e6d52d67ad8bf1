@@ -1,7 +1,0 @@
-package kodlamaio.Hrms.core.adapters;
-
-import tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy;
-
-public class MernisServiceAdapter {
-	public boolean checkIfRealPerson(Candidate cand)
-}

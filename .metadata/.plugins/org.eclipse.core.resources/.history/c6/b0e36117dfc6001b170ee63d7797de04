@@ -1,0 +1,34 @@
+package kodlamaio.Hrms.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import kodlamaio.Hrms.business.abstracts.JobExperienceService;
+import kodlamaio.Hrms.core.utilities.results.DataResult;
+import kodlamaio.Hrms.core.utilities.results.Result;
+import kodlamaio.Hrms.core.utilities.results.SuccessDataResult;
+import kodlamaio.Hrms.dataAccess.abstracts.JobExperienceDao;
+import kodlamaio.Hrms.entities.concretes.JobExperience;
+
+public class JobExperienceManager implements JobExperienceService{
+
+	private JobExperienceDao jobExperienceDao;
+	@Autowired
+	public JobExperienceManager(JobExperienceDao jobExperienceDao) {
+		super();
+		this.jobExperienceDao = jobExperienceDao;
+	}
+
+	@Override
+	public DataResult<List<JobExperience>> getAll() {
+		return new SuccessDataResult<List<JobExperience>>(this.jobExperienceDao.findAll());
+	}
+
+	@Override
+	public Result add(JobExperience jobExperience) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,7 +1,0 @@
-package kodlamaio.Hrms.core.utilities.adapters.abstracts.copy;
-
-import kodlamaio.Hrms.entities.concretes.Candidate;
-
-public interface MernisCheckService {
-	public boolean checkIfRealPerson(Candidate candidate);
-}

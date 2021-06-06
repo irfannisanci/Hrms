@@ -45,8 +45,8 @@ public class JobAdvertManager implements JobAdvertService{
 	}
 	
 	@Override
-	public Result add(JobAdvert jobAdvert) {
-		this.jobAdvertDao.save(jobAdvert);
+	public Result add(JobAdvert jobAdver) {
+		this.jobAdvertDao.save(jobAdver);
 		return new SuccessResult("İş ilanı açıldı");
 	}
 
