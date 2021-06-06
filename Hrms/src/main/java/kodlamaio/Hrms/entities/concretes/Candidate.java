@@ -1,8 +1,11 @@
 package kodlamaio.Hrms.entities.concretes;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -32,5 +35,8 @@ public class Candidate extends User{
 	
 	@Column(name="birth_year")
 	private int birthOfDate;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<Resume> resums;
 
 }

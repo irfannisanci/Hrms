@@ -1,0 +1,19 @@
+package kodlamaio.Hrms.entities.dtos;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ResumDto {
+	private int id;
+	private int candidateId;
+	private String githubLink;
+	private String linkedLink;
+	private String photo;
+	private String description;
+	private Date createdDate;
+	private Date updatedDate;
+}

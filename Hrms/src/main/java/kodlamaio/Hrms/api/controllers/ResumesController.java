@@ -13,6 +13,7 @@ import kodlamaio.Hrms.business.abstracts.ResumeService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
 import kodlamaio.Hrms.entities.concretes.Resume;
+import kodlamaio.Hrms.entities.dtos.ResumeDto;
 
 @RestController
 @RequestMapping("/api/resums")
@@ -31,7 +32,7 @@ public class ResumesController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Resume resume) {
-		return this.resumeService.add(resume);
+	public Result add(@RequestBody ResumeDto resumeDto) {
+		return this.resumeService.add(resumeDto);
 	}
 }

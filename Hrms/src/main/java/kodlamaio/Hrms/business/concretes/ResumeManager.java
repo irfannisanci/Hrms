@@ -2,6 +2,7 @@ package kodlamaio.Hrms.business.concretes;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +13,18 @@ import kodlamaio.Hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.Hrms.core.utilities.results.SuccessResult;
 import kodlamaio.Hrms.dataAccess.abstracts.ResumeDao;
 import kodlamaio.Hrms.entities.concretes.Resume;
+import kodlamaio.Hrms.entities.dtos.ResumeDto;
 
 @Service
 public class ResumeManager implements ResumeService{
 
 	private ResumeDao resumeDao;
+	private ModelMapper modelMapper;
 	@Autowired
-	public ResumeManager(ResumeDao resumeDao) {
+	public ResumeManager(ResumeDao resumeDao,ModelMapper modelMapper) {
 		super();
 		this.resumeDao = resumeDao;
+		this.modelMapper=modelMapper;
 	}
 
 	@Override
@@ -29,7 +33,8 @@ public class ResumeManager implements ResumeService{
 	}
 
 	@Override
-	public Result add(Resume resume) {
+	public Result add(ResumeDto resumeDto) {
+		Resume resume=modelMapper.map(resumeDto, Resume.class);
 		this.resumeDao.save(resume);
 		return new SuccessResult("Cv Eklendi");
 	}

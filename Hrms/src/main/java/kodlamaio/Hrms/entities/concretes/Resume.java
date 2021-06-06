@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,10 +33,10 @@ public class Resume {
 	private String photo;
 	
 	@Column(name="github_link")
-	private String github;
+	private String githubLink;
 	
 	@Column(name="linkedin_link")
-	private String linkedin;
+	private String linkedinLink;
 	
 	@Column(name="description")
 	private String description;
@@ -46,7 +48,7 @@ public class Resume {
 	private LocalDate updatedDate;
 	
 	@Column(name="is_active")
-	private LocalDate isActive;
+	private boolean isActive=true;
 	
 	@OneToMany(mappedBy = "resume")
 	private List<Technology> technologies;
@@ -59,5 +61,9 @@ public class Resume {
 	
 	@OneToMany(mappedBy = "resume")
 	private List<Education> educations;
+	
+	@ManyToOne
+	@JoinColumn(name="candidate_id",referencedColumnName = "id")
+	private Candidate candidate;
 	
 }
