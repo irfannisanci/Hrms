@@ -28,6 +28,18 @@ public class JobAdvertManager implements JobAdvertService{
 		this.modelMapper=modelMapper;
 	}
 	
+	
+	private List<JobAdvertDto> dtoConverter(List<JobAdvert> jobAdvert){
+		List<JobAdvertDto> jobAdvertDto =new ArrayList<JobAdvertDto>();
+		jobAdvert.forEach(mapper->{
+			JobAdvertDto dto=modelMapper.map(mapper, JobAdvertDto.class);
+			dto.setEmployerCompanyName(mapper.getEmployer().getCompanyName());
+			dto.setJobTitleTitleName(mapper.getJobTitle().getTitleName());
+			jobAdvertDto.add(dto);
+		});
+		return jobAdvertDto;
+	}
+	
 	@Override
 	public DataResult<List<JobAdvert>> getAll() {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll());
@@ -52,7 +64,7 @@ public class JobAdvertManager implements JobAdvertService{
 
 	@Override
 	public DataResult<List<JobAdvertDto>> findByIsActiveAndEmployer_CompanyName(String companyName) {
-		return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findByIsActiveAndEmployer_CompanyName(true,companyName).stream().map(element->modelMapper.map(element, JobAdvertDto.class)).collect(Collectors.toList()));
+		return new SuccessDataResult<List<JobAdvertDto>>(this.dtoConverter(this.jobAdvertDao.findByIsActiveAndEmployer_CompanyName(true, companyName)));
 	}
 
 	

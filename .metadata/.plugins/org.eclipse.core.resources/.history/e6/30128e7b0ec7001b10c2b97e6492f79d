@@ -29,7 +29,7 @@ public class Resume {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="photo")
+	@Column(name="ptoho")
 	private String photo;
 	
 	@Column(name="github_link")

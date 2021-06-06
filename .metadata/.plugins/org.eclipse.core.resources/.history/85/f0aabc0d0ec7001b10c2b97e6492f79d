@@ -14,7 +14,7 @@ public class ResumeDto {
 	private int id;
 	private int candidateId;
 	private String githubLink;
-	private String linkedinLink;
+	private String linkedLink;
 	private String photo;
 	private String description;
 	private LocalDate createdDate;
