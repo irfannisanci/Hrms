@@ -22,7 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.Hrms.business.abstracts.EmployerService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.ErrorDataResult;
-import kodlamaio.Hrms.entities.concretes.Employer;
+import kodlamaio.Hrms.entities.dtos.EmployerInputDto;
+import kodlamaio.Hrms.entities.dtos.EmployerOutputDto;
 
 @RestController
 @RequestMapping("/api/employers")
@@ -36,13 +37,13 @@ public class EmployersController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Employer>> getAll(){
+	public DataResult<List<EmployerOutputDto>> getAll(){
 		return this.employerService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<?> add(@Valid @RequestBody Employer employer) {
-		return ResponseEntity.ok(this.employerService.add(employer));
+	public ResponseEntity<?> add(@Valid @RequestBody EmployerInputDto employerInputDto) {
+		return ResponseEntity.ok(this.employerService.add(employerInputDto));
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)

@@ -4,9 +4,9 @@ import java.util.List;
 
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
-import kodlamaio.Hrms.entities.concretes.Education;
+import kodlamaio.Hrms.entities.dtos.EducationDto;
 
 public interface EducationService {
-	DataResult<List<Education>> getAll();
-	Result add(Education education);
+	DataResult<List<EducationDto>> getAll();
+	Result add(EducationDto educationDto);
 }

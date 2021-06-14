@@ -10,6 +10,6 @@ import kodlamaio.Hrms.entities.concretes.JobAdvert;
 
 public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer>{
 	List<JobAdvert> findByIsActive(boolean status);
-	List<JobAdvert> findByIsActiveOrderByApplicationDeadline(boolean status);
+	List<JobAdvert> findByIsActiveOrderByCloseDate(boolean status);
 	List<JobAdvert> findByIsActiveAndEmployer_CompanyName(boolean status, String companyName);
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.Hrms.business.abstracts.GraduateService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
-import kodlamaio.Hrms.entities.concretes.Graduate;
+import kodlamaio.Hrms.entities.dtos.GraduateDto;
 
 @RestController
 @RequestMapping("/api/graduates")
@@ -26,12 +26,12 @@ public class GraduatesController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Graduate>> getAll(){
+	public DataResult<List<GraduateDto>> getAll(){
 		return this.graduateService.getAll();
 	}
 	
 	@PostMapping("add")
-	public Result add(@RequestBody Graduate graduate) {
-		return this.graduateService.add(graduate);
+	public Result add(@RequestBody GraduateDto graduateDto) {
+		return this.graduateService.add(graduateDto);
 	}
 }

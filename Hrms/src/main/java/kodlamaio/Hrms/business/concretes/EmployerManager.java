@@ -1,7 +1,9 @@
 package kodlamaio.Hrms.business.concretes;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,8 @@ import kodlamaio.Hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.Hrms.core.utilities.results.SuccessResult;
 import kodlamaio.Hrms.dataAccess.abstracts.EmployerDao;
 import kodlamaio.Hrms.entities.concretes.Employer;
+import kodlamaio.Hrms.entities.dtos.EmployerInputDto;
+import kodlamaio.Hrms.entities.dtos.EmployerOutputDto;
 
 @Service
 public class EmployerManager implements EmployerService{
@@ -22,23 +26,26 @@ public class EmployerManager implements EmployerService{
 	private EmployerDao employerDao;
 	private EmployerCheckService employerCheckService;
 	private UserDao userDao;
+	private ModelMapper modelMapper;
 	
 	@Autowired
 	public EmployerManager(EmployerDao employerDao, EmployerCheckService employerCheckService,
-			UserDao userDao) {
+			UserDao userDao,ModelMapper modelMapper) {
 		super();
 		this.employerDao = employerDao;
 		this.employerCheckService = employerCheckService;
 		this.userDao = userDao;
+		this.modelMapper=modelMapper;
 	}
 
 	@Override
-	public DataResult<List<Employer>> getAll() {
-		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),"Data Listelendi");
+	public DataResult<List<EmployerOutputDto>> getAll() {
+		return new SuccessDataResult<List<EmployerOutputDto>>(this.employerDao.findAll().stream().map(element->modelMapper.map(element, EmployerOutputDto.class)).collect(Collectors.toList()),"Data Listelendi");
 	}
 
 	@Override
-	public Result add(Employer employer) {
+	public Result add(EmployerInputDto employerInputDto) {
+		Employer employer=modelMapper.map(employerInputDto, Employer.class);
 		if (employer.getCompanyName().isBlank() || employer.getEmail().isBlank() || employer.getPassword().isBlank() || employer.getPhoneNumber().isBlank() || employer.getWebAddress().isBlank()) {
 			return new ErrorResult("Tüm alanların doldurulması zorunludur.");
 		} else if(userDao.existsByEmail(employer.getEmail())){

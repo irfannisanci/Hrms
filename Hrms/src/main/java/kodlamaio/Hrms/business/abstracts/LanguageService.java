@@ -4,9 +4,9 @@ import java.util.List;
 
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
-import kodlamaio.Hrms.entities.concretes.Language;
+import kodlamaio.Hrms.entities.dtos.LanguageDto;
 
 public interface LanguageService {
-	DataResult<List<Language>> getAll();
-	Result add(Language language);
+	DataResult<List<LanguageDto>> getAll();
+	Result add(LanguageDto languageDto);
 }

@@ -1,6 +1,7 @@
 package kodlamaio.Hrms.business.concretes;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import kodlamaio.Hrms.core.utilities.results.SuccessResult;
 import kodlamaio.Hrms.dataAccess.abstracts.ResumeDao;
 import kodlamaio.Hrms.entities.concretes.Resume;
 import kodlamaio.Hrms.entities.dtos.ResumeDto;
+import kodlamaio.Hrms.entities.dtos.ResumeOutputDto;
 
 @Service
 public class ResumeManager implements ResumeService{
@@ -28,8 +30,8 @@ public class ResumeManager implements ResumeService{
 	}
 
 	@Override
-	public DataResult<List<Resume>> getAll() {
-		return new SuccessDataResult<List<Resume>>(this.resumeDao.findAll());
+	public DataResult<List<ResumeOutputDto>> getAll() {
+		return new SuccessDataResult<List<ResumeOutputDto>>(this.resumeDao.findAll().stream().map(element->modelMapper.map(element, ResumeOutputDto.class)).collect(Collectors.toList()));
 	}
 
 	@Override
@@ -37,6 +39,11 @@ public class ResumeManager implements ResumeService{
 		Resume resume=modelMapper.map(resumeDto, Resume.class);
 		this.resumeDao.save(resume);
 		return new SuccessResult("Cv Eklendi");
+	}
+
+	@Override
+	public DataResult<List<ResumeOutputDto>> findAllByCandidateId(int id) {
+		return new SuccessDataResult<List<ResumeOutputDto>>(this.resumeDao.findAllByCandidateId(id).stream().map(element->modelMapper.map(element, ResumeOutputDto.class)).collect(Collectors.toList()));
 	}
 
 }

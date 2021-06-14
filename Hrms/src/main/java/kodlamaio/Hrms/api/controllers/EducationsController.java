@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.Hrms.business.abstracts.EducationService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
-import kodlamaio.Hrms.entities.concretes.Education;
+import kodlamaio.Hrms.entities.dtos.EducationDto;
 
 @RestController
 @RequestMapping("/api/educations")
@@ -26,12 +26,12 @@ public class EducationsController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Education>> getAll(){
+	public DataResult<List<EducationDto>> getAll(){
 		return this.educationService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Education education) {
-		return this.educationService.add(education);
+	public Result add(@RequestBody EducationDto educationDto) {
+		return this.educationService.add(educationDto);
 	}
 }

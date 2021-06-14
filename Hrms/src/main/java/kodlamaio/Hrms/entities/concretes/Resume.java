@@ -1,8 +1,9 @@
 package kodlamaio.Hrms.entities.concretes;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,27 +43,27 @@ public class Resume {
 	private String description;
 	
 	@Column(name="created_date")
-	private LocalDate createdDate;
+	private Date createdDate;
 	
 	@Column(name="updated_date")
-	private LocalDate updatedDate;
+	private Date updatedDate;
 	
 	@Column(name="is_active")
 	private boolean isActive=true;
 	
-	@OneToMany(mappedBy = "resume")
+	@OneToMany(mappedBy = "resume", cascade = CascadeType.ALL)
 	private List<Technology> technologies;
 	
-	@OneToMany(mappedBy = "resume")
+	@OneToMany(mappedBy = "resume", cascade = CascadeType.ALL)
 	private List<Language> languages;
 	
-	@OneToMany(mappedBy = "resume")
+	@OneToMany(mappedBy = "resume", cascade = CascadeType.ALL)
 	private List<JobExperience> jobExperiences;
 	
-	@OneToMany(mappedBy = "resume")
+	@OneToMany(mappedBy = "resume", cascade = CascadeType.ALL)
 	private List<Education> educations;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity = Candidate.class)
 	@JoinColumn(name="candidate_id",referencedColumnName = "id")
 	private Candidate candidate;
 	

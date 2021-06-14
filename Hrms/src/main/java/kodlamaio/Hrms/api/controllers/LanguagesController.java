@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.Hrms.business.abstracts.LanguageService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
-import kodlamaio.Hrms.entities.concretes.Language;
+import kodlamaio.Hrms.entities.dtos.LanguageDto;
 
 @RestController
 @RequestMapping("/api/languages")
@@ -26,12 +26,12 @@ public class LanguagesController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Language>> getAll(){
+	public DataResult<List<LanguageDto>> getAll(){
 		return this.languageService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Language language) {
-		return this.languageService.add(language);
+	public Result add(@RequestBody LanguageDto languageDto) {
+		return this.languageService.add(languageDto);
 	}
 }

@@ -1,0 +1,10 @@
+package kodlamaio.Hrms.entities.dtos;
+
+public class EmployerOutputDto {
+	private int id;
+	private String email;
+	private String companyName;
+	private String webAddress;
+	private String phoneNumber;
+}
+}

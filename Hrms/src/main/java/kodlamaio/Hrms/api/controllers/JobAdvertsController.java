@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.Hrms.business.abstracts.JobAdvertService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
-import kodlamaio.Hrms.entities.concretes.JobAdvert;
 import kodlamaio.Hrms.entities.dtos.JobAdvertDto;
+import kodlamaio.Hrms.entities.dtos.JobAdvertGetDto;
+import kodlamaio.Hrms.entities.dtos.JobAdvertInputDto;
 
 @RestController
 @RequestMapping("/api/jobadverts")
@@ -26,13 +27,13 @@ public class JobAdvertsController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<JobAdvert>> getAll(){
+	public DataResult<List<JobAdvertGetDto>> getAll(){
 		return this.jobAdvertService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobAdvert jobAdvert) {
-		return this.jobAdvertService.add(jobAdvert);
+	public Result add(@RequestBody JobAdvertInputDto jobAdvertInputDto) {
+		return this.jobAdvertService.add(jobAdvertInputDto);
 	}
 	
 	@GetMapping("/findByIsActive")
@@ -41,8 +42,8 @@ public class JobAdvertsController {
 	}
 	
 	@GetMapping("/findByIsActiveOrderByapplicationDeadline")
-	public DataResult<List<JobAdvertDto>> findByIsActiveOrderByapplicationDeadline(){
-		return this.jobAdvertService.findByIsActiveOrderByApplicationDeadline();
+	public DataResult<List<JobAdvertDto>> findByIsActiveOrderByCloseDate(){
+		return this.jobAdvertService.findByIsActiveOrderByCloseDate();
 	}
 	
 	@GetMapping("/findByIsActiveAndEmployer_CompanyName")

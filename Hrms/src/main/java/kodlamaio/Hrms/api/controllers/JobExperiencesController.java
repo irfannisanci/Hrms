@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.Hrms.business.abstracts.JobExperienceService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
-import kodlamaio.Hrms.entities.concretes.JobExperience;
+import kodlamaio.Hrms.entities.dtos.JobExperienceDto;
 
 @RestController
 @RequestMapping("/api/jobexperiences")
@@ -26,12 +26,12 @@ public class JobExperiencesController {
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<JobExperience>> getAll(){
+	public DataResult<List<JobExperienceDto>> getAll(){
 		return this.jobExperienceService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobExperience jobExperience) {
-		return this.jobExperienceService.add(jobExperience);
+	public Result add(@RequestBody JobExperienceDto jobExperienceDto) {
+		return this.jobExperienceService.add(jobExperienceDto);
 	}
 }

@@ -1,0 +1,12 @@
+package kodlamaio.Hrms.entities.dtos;
+
+import java.time.LocalDate;
+
+public class CandidateOutputDto {
+	private int id;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private String nationalityId;
+	private LocalDate birthOfDate
+}

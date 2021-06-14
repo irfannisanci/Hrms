@@ -14,6 +14,6 @@ public class JobAdvertDto {
 	private String employerCompanyName;
 	private String jobTitleTitleName;
 	private LocalDate creationDate;
-	private LocalDate applicationDeadline;
+	private LocalDate closeDate;
 	private String numberOfPosition;
 }

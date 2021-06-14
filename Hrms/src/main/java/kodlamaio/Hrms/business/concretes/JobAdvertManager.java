@@ -1,6 +1,5 @@
 package kodlamaio.Hrms.business.concretes;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,6 +15,8 @@ import kodlamaio.Hrms.core.utilities.results.SuccessResult;
 import kodlamaio.Hrms.dataAccess.abstracts.JobAdvertDao;
 import kodlamaio.Hrms.entities.concretes.JobAdvert;
 import kodlamaio.Hrms.entities.dtos.JobAdvertDto;
+import kodlamaio.Hrms.entities.dtos.JobAdvertGetDto;
+import kodlamaio.Hrms.entities.dtos.JobAdvertInputDto;
 
 @Service
 public class JobAdvertManager implements JobAdvertService{
@@ -29,13 +30,14 @@ public class JobAdvertManager implements JobAdvertService{
 	}
 	
 	@Override
-	public DataResult<List<JobAdvert>> getAll() {
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll());
+	public DataResult<List<JobAdvertGetDto>> getAll() {
+		return new SuccessDataResult<List<JobAdvertGetDto>>(this.jobAdvertDao.findAll().stream().map(element->modelMapper.map(element, JobAdvertGetDto.class)).collect(Collectors.toList()),"Tüm iş ilanları listelendi");
 	}
 	
 	@Override
-	public Result add(JobAdvert jobAdver) {
-		this.jobAdvertDao.save(jobAdver);
+	public Result add(JobAdvertInputDto jobAdverInputDto) {
+		JobAdvert jobAdvert=modelMapper.map(jobAdverInputDto, JobAdvert.class);
+		this.jobAdvertDao.save(jobAdvert);
 		return new SuccessResult("İş ilanı açıldı");
 	}
 
@@ -46,8 +48,8 @@ public class JobAdvertManager implements JobAdvertService{
 	}
 
 	@Override
-	public DataResult<List<JobAdvertDto>> findByIsActiveOrderByApplicationDeadline() {
-		return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findByIsActiveOrderByApplicationDeadline(true).stream().map(element->modelMapper.map(element, JobAdvertDto.class)).collect(Collectors.toList()),"Aktif iş ilanları tarihe göre sıralandı.");
+	public DataResult<List<JobAdvertDto>> findByIsActiveOrderByCloseDate() {
+		return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findByIsActiveOrderByCloseDate(true).stream().map(element->modelMapper.map(element, JobAdvertDto.class)).collect(Collectors.toList()),"Aktif iş ilanları tarihe göre sıralandı.");
 	}
 
 	@Override

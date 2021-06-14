@@ -1,0 +1,13 @@
+package kodlamaio.Hrms.entities.dtos;
+
+import lombok.AllAr
+import lombok.NoArgsConstructor;gsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CityDto {
+	private int id;
+	private String cityName;
+}

@@ -5,9 +5,9 @@ import java.util.List;
 
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
-import kodlamaio.Hrms.entities.concretes.City;
+import kodlamaio.Hrms.entities.dtos.CityDto;
 
 public interface CityService {
-	DataResult<List<City>> getAll();
-	Result add(City city);
+	DataResult<List<CityDto>> getAll();
+	Result add(CityDto cityDto);
 }

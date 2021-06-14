@@ -31,7 +31,7 @@ public class JobAdvert {
 	private LocalDate creationDate;
 	
 	@Column(name="application_deadline")
-	private LocalDate applicationDeadline;
+	private LocalDate closeDate;
 	
 	@Column(name="is_active")
 	private boolean isActive;
