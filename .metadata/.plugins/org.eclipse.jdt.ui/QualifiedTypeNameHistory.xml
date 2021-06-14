@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.dataAccess.abstracts.EducationDao"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.SuccessResult"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.ResumeService"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.TechnologyService"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.LanguageService"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.JobExperienceService"/>
@@ -51,7 +47,6 @@
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Resume"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.JobTitle"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Candidate"/>
     <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.DataResult"/>
@@ -60,4 +55,9 @@
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Candidate"/>
+    <fullyQualifiedTypeName name="java.rmi.RemoteException"/>
+    <fullyQualifiedTypeName name="tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.adapters.VerifyApiService"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 </qualifiedTypeNameHistroy>

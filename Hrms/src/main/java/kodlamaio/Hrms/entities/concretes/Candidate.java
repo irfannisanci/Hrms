@@ -37,7 +37,7 @@ public class Candidate extends User{
 	private String nationalityId;
 	
 	@Column(name="birth_year")
-	private int birthOfDate;
+	private String birthOfDate;
 	
 	@OneToMany(mappedBy = "candidate")
 	private List<Resume> resums;

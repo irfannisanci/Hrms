@@ -1,4 +1,4 @@
-package kodlamaio.Hrms.core.adapters.concretes;
+/*package kodlamaio.Hrms.core.adapters.concretes;
 
 import java.util.Locale;
 
@@ -26,4 +26,4 @@ public class MernisServiceAdapter implements MernisCheckService{
 		return result;
 	}
 
-}
+}*/

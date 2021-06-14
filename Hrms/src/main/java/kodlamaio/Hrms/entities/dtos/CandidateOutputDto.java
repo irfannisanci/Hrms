@@ -13,5 +13,5 @@ public class CandidateOutputDto {
 	private String firstName;
 	private String lastName;
 	private String nationalityId;
-	private int birthOfDate;
+	private String birthOfDate;
 }
