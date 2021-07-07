@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JobAdvertDto {
+	private int id;
 	private String employerCompanyName;
 	private String jobTitleTitleName;
 	private LocalDate creationDate;

@@ -57,5 +57,6 @@ public class EmployerManager implements EmployerService{
 			return new SuccessResult("İş veren eklendi");  //sistem çalışanı ve email onayı eklenecek.
 		}
 	}
+
 	
 }

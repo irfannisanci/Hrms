@@ -1,6 +1,6 @@
 package kodlamaio.Hrms.entities.dtos;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +17,6 @@ public class ResumeDto {
 	private String linkedinLink;
 	private String photo;
 	private String description;
-	private LocalDate createdDate;
-	private LocalDate updatedDate;
+	private Date createdDate;
+	private Date updatedDate;
 }

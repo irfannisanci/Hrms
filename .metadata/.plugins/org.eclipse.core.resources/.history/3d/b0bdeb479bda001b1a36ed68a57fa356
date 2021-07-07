@@ -1,0 +1,66 @@
+package kodlamaio.Hrms.business.concretes;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlamaio.Hrms.business.abstracts.JobAdvertService;
+import kodlamaio.Hrms.core.utilities.results.DataResult;
+import kodlamaio.Hrms.core.utilities.results.Result;
+import kodlamaio.Hrms.core.utilities.results.SuccessDataResult;
+import kodlamaio.Hrms.core.utilities.results.SuccessResult;
+import kodlamaio.Hrms.dataAccess.abstracts.JobAdvertDao;
+import kodlamaio.Hrms.entities.concretes.JobAdvert;
+import kodlamaio.Hrms.entities.dtos.JobAdvertDto;
+import kodlamaio.Hrms.entities.dtos.JobAdvertGetDto;
+import kodlamaio.Hrms.entities.dtos.JobAdvertInputDto;
+
+@Service
+public class JobAdvertManager implements JobAdvertService{
+	private JobAdvertDao jobAdvertDao;
+	private ModelMapper modelMapper;
+	@Autowired
+	public JobAdvertManager(JobAdvertDao jobAdvertDao,ModelMapper modelMapper) {
+		super();
+		this.jobAdvertDao=jobAdvertDao;
+		this.modelMapper=modelMapper;
+	}
+	
+	@Override
+	public DataResult<List<JobAdvertGetDto>> getAll() {
+		return new SuccessDataResult<List<JobAdvertGetDto>>(this.jobAdvertDao.findAll().stream().map(element->modelMapper.map(element, JobAdvertGetDto.class)).collect(Collectors.toList()),"Tüm iş ilanları listelendi");
+	}
+	
+	@Override
+	public Result add(JobAdvertInputDto jobAdverInputDto) {
+		JobAdvert jobAdvert=modelMapper.map(jobAdverInputDto, JobAdvert.class);
+		this.jobAdvertDao.save(jobAdvert);
+		return new SuccessResult("İş ilanı açıldı");
+	}
+
+
+	@Override
+	public DataResult<List<JobAdvertDto>> findByIsActive() {
+		return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findByIsActive(true).stream().map(element->modelMapper.map(element, JobAdvertDto.class)).collect(Collectors.toList()),"Aktif iş ilanları listelendi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertDto>> findByIsActiveOrderByCloseDate() {
+		return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findByIsActiveOrderByCloseDate(true).stream().map(element->modelMapper.map(element, JobAdvertDto.class)).collect(Collectors.toList()),"Aktif iş ilanları tarihe göre sıralandı.");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertDto>> findByIsActiveAndEmployer_CompanyName(String companyName) {
+		return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findByIsActiveAndEmployer_CompanyName(true,companyName).stream().map(element->modelMapper.map(element, JobAdvertDto.class)).collect(Collectors.toList()));
+	}
+
+	@Override
+	public DataResult<List<JobAdvertGetDto>> findById(int id) {
+		return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findById(id).stream().map(element->modelMapper.map(element, JobAdvertGetDto.class)).collect(Collectors.toList()));
+	}
+
+	
+}

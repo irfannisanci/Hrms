@@ -3,6 +3,7 @@ package kodlamaio.Hrms.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.Hrms.business.abstracts.JobAdvertService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
+import kodlamaio.Hrms.entities.concretes.JobAdvert;
 import kodlamaio.Hrms.entities.dtos.JobAdvertDto;
 import kodlamaio.Hrms.entities.dtos.JobAdvertGetDto;
 import kodlamaio.Hrms.entities.dtos.JobAdvertInputDto;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/jobadverts")
 public class JobAdvertsController {
@@ -29,6 +32,11 @@ public class JobAdvertsController {
 	@GetMapping("/getall")
 	public DataResult<List<JobAdvertGetDto>> getAll(){
 		return this.jobAdvertService.getAll();
+	}
+	
+	@GetMapping("/getById")
+	public DataResult<JobAdvert> findById(int id){
+		return this.jobAdvertService.findById(id);
 	}
 	
 	@PostMapping("/add")
@@ -49,5 +57,10 @@ public class JobAdvertsController {
 	@GetMapping("/findByIsActiveAndEmployer_CompanyName")
 	public DataResult<List<JobAdvertDto>> findByIsActiveAndEmployer_CompanyName(String companyName){
 		return this.jobAdvertService.findByIsActiveAndEmployer_CompanyName(companyName);
+	}
+	
+	@GetMapping("/findByIsActiveTrueAndEmployer_Id")
+	public DataResult<List<JobAdvertDto>> findByIsActiveTrueAndEmployer_Id(int id){
+		return this.jobAdvertService.findByIsActiveTrueAndEmployer_Id(id);
 	}
 }

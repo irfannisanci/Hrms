@@ -2,6 +2,7 @@ package kodlamaio.Hrms.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import kodlamaio.Hrms.core.entities.User;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/users")
 public class UsersController {

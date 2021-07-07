@@ -57,5 +57,17 @@ public class JobAdvertManager implements JobAdvertService{
 		return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findByIsActiveAndEmployer_CompanyName(true,companyName).stream().map(element->modelMapper.map(element, JobAdvertDto.class)).collect(Collectors.toList()));
 	}
 
+	@Override
+	public DataResult<JobAdvert> findById(int id) {
+		return new SuccessDataResult<JobAdvert>(this.jobAdvertDao.findById(id));
+	}
+
+	@Override
+	public DataResult<List<JobAdvertDto>> findByIsActiveTrueAndEmployer_Id(int id) {
+		 return new SuccessDataResult<List<JobAdvertDto>>(this.jobAdvertDao.findByIsActiveTrueAndEmployer_Id(id).stream().map(element->modelMapper.map(element, JobAdvertDto.class)).collect(Collectors.toList()));
+	}
+
+	
+
 	
 }

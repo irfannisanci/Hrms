@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.TechnologyService"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.LanguageService"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.JobExperienceService"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.business.abstracts.GraduateService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
@@ -15,22 +13,18 @@
     <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.ResumeDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.JobAdvertInputDto"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.JobAdvert"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.JobAdvertDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.LanguageInputDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.LanguageDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.TechnologyDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.JobExperienceDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.GraduateDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.EducationDto"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.JobAdvertGetDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.City"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.CityDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.CandidateInputDto"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.CandidateOutputDto"/>
     <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Employer"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.EmployerInputDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.EmployerOutputDto"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.JobExperience"/>
@@ -40,7 +34,6 @@
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonProperty"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonProperty.Access"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Graduate"/>
@@ -50,14 +43,21 @@
     <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.DataResult"/>
-    <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.SuccessDataResult"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.ResumeOutputDto"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Candidate"/>
     <fullyQualifiedTypeName name="java.rmi.RemoteException"/>
     <fullyQualifiedTypeName name="tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy"/>
     <fullyQualifiedTypeName name="kodlamaio.Hrms.adapters.VerifyApiService"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.JobAdvertGetDto"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.SuccessResult"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.Employer"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.concretes.JobAdvert"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.core.utilities.results.SuccessDataResult"/>
+    <fullyQualifiedTypeName name="kodlamaio.Hrms.entities.dtos.JobAdvertDto"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 </qualifiedTypeNameHistroy>
